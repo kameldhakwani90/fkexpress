@@ -4,10 +4,12 @@ import { ArrowRight, Play, Check, BarChart3, Shield, Truck, Globe, Warehouse, Us
 import Logo from '../components/Logo'
 import ThemeToggle from '../components/ThemeToggle'
 import HeroAnimations from '../components/HeroAnimations'
+import StructuredData from '../components/StructuredData'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors">
+      <StructuredData />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/95 dark:bg-black/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <nav className="max-w-7xl mx-auto px-6 py-4">
@@ -22,7 +24,7 @@ export default function Home() {
             <div className="hidden lg:flex items-center space-x-6">
               <a href="#accueil" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Accueil</a>
               <a href="#services" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Services</a>
-              <a href="#flotte" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Flotte</a>
+              <a href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Blog</a>
               <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Contact</a>
               <ThemeToggle />
               <button className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg transition-all duration-300 font-semibold text-sm hover:shadow-lg hover:scale-105">
@@ -65,7 +67,7 @@ export default function Home() {
             
             {/* Subtitle */}
             <h2 className="text-lg md:text-xl font-normal text-gray-200 mb-6 tracking-wide">
-              Spécialistes du transport routier depuis Gagny (93)
+              Spécialistes du transport routier de marchandises
             </h2>
             
             {/* Description PRO */}
@@ -93,7 +95,7 @@ export default function Home() {
               </button>
               <button className="border-2 border-white/50 hover:border-white text-white hover:bg-white/10 px-10 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
                 <Phone className="mr-2 h-5 w-5" />
-                01 XX XX XX XX
+                01 85 78 43 53
               </button>
             </div>
             
@@ -272,6 +274,130 @@ export default function Home() {
               <Phone className="mr-2 h-5 w-5" />
               01 85 78 43 53
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Actualités Section - Style OrderSpot */}
+      <section className="py-32 px-6 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
+              Tenez-vous informé grâce à nos
+            </h2>
+            <h3 className="text-5xl md:text-6xl font-bold text-primary-600 dark:text-primary-400 mb-12 tracking-tight">
+              Actualités
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Découvrez nos dernières actualités, nouveautés et évolutions dans le secteur du transport de marchandises
+            </p>
+          </div>
+
+          {/* Grid Articles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="/blog/1" className="group cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Truck className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                    <span className="text-white text-sm font-medium">Transport</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 transition-colors">
+                    Certification EcoVadis : Une performance en 2025 pour les différents business unit de FKExpress Group
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                    FKExpress Group a obtenu une nouvelle certification EcoVadis, récompensant nos efforts...
+                  </p>
+                  <div className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+                    15 JANVIER
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/blog/2" className="group cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="h-48 bg-gradient-to-br from-green-500 to-green-600 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Award className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                    <span className="text-white text-sm font-medium">Certification</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 transition-colors">
+                    Alternance : La campagne 2025 est lancée !
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                    Accompagnement des jeunes vers nos domaines d'activité...
+                  </p>
+                  <div className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+                    12 JANVIER
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/blog/3" className="group cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="h-48 bg-gradient-to-br from-primary-500 to-primary-600 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Globe className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                    <span className="text-white text-sm font-medium">International</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 transition-colors">
+                    FKExpress Group se dote de licences de courrier de 200 kg à la hauteur de son ambition
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                    Une nouvelle étape franchie pour notre référence de transport et de logistique...
+                  </p>
+                  <div className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+                    08 JANVIER
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/blog/4" className="group cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="h-48 bg-gradient-to-br from-orange-500 to-orange-600 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Package className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                    <span className="text-white text-sm font-medium">Innovation</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 transition-colors">
+                    Depuis le 1er avril 2025, l'EPIC 2 27311002 - Transport routier et ferroviaire
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                    Depuis le 1er avril 2025, FK EXPRESS Group applique le nouveau cadre réglementaire...
+                  </p>
+                  <div className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+                    01 AVRIL
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Voir toutes les actualités */}
+          <div className="text-center mt-16">
+            <a href="/blog" className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center mx-auto">
+              Voir toutes nos actualités
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
           </div>
         </div>
       </section>
