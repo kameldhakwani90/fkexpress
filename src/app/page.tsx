@@ -1,13 +1,15 @@
 'use client'
 
-import { ArrowRight, Play, Check, BarChart3, Shield, Truck, Globe, Warehouse, Users, Clock, Star, Package, Zap, Building2, TrendingUp, MapPin, Phone, Sun, Moon, Award, Calendar, FileText } from 'lucide-react'
+import { ArrowRight, Play, Check, BarChart3, Shield, Truck, Globe, Warehouse, Users, Clock, Star, Package, Zap, Building2, TrendingUp, MapPin, Phone, Sun, Moon, Award, Calendar, FileText, Gauge, Headphones, BadgeCheck } from 'lucide-react'
 import Logo from '../components/Logo'
+import ThemeToggle from '../components/ThemeToggle'
+import HeroAnimations from '../components/HeroAnimations'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors">
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+      <header className="fixed top-0 w-full z-50 bg-white/95 dark:bg-black/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -17,29 +19,32 @@ export default function Home() {
                 <p className="text-xs text-gray-500 dark:text-gray-400">Transport & Logistique</p>
               </div>
             </div>
-            <div className="hidden lg:flex items-center space-x-8">
-              <a href="#accueil" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Accueil</a>
-              <a href="#services" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Services</a>
-              <a href="#flotte" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Notre Flotte</a>
-              <a href="#zones" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Zones</a>
-              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">Contact</a>
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl transition-all duration-300 font-semibold hover:shadow-lg hover:scale-105">
-                <FileText className="w-4 h-4 inline mr-2" />
-                Demander un Devis
+            <div className="hidden lg:flex items-center space-x-6">
+              <a href="#accueil" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Accueil</a>
+              <a href="#services" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Services</a>
+              <a href="#flotte" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Flotte</a>
+              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Contact</a>
+              <ThemeToggle />
+              <button className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg transition-all duration-300 font-semibold text-sm hover:shadow-lg hover:scale-105">
+                <FileText className="w-4 h-4 inline mr-1.5" />
+                Devis Gratuit
               </button>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* Hero Section - Entreprise de Transport */}
+      {/* Hero Section - Entreprise de Transport PRO */}
       <section id="accueil" className="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden">
+        {/* Hero Animations */}
+        <HeroAnimations />
+        
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 z-10"></div>
           <img 
             src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-            alt="Camions FKExpress" 
+            alt="Flotte FK EXPRESS - Transport Professionnel" 
             className="w-full h-full object-cover"
           />
         </div>
@@ -53,21 +58,31 @@ export default function Home() {
             </div>
             
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 tracking-tight">
               Transport de Marchandises 
               <span className="text-primary-400">Professionnel</span>
             </h1>
             
             {/* Subtitle */}
-            <h2 className="text-xl md:text-2xl font-light text-gray-200 mb-8">
-              Spécialistes du transport routier, fret de proximité et logistique en France et International
+            <h2 className="text-lg md:text-xl font-normal text-gray-200 mb-6 tracking-wide">
+              Spécialistes du transport routier depuis Gagny (93)
             </h2>
             
-            {/* Description */}
-            <p className="text-lg text-gray-300 leading-relaxed mb-12 max-w-3xl">
-              Depuis Paris et sa région, nous transportons vos marchandises partout en France et vers l'international. 
-              Service 24h/24, 7j/7 avec traçabilité complète et garantie d'arrivée à destination.
-            </p>
+            {/* Description PRO */}
+            <div className="space-y-4 mb-12 max-w-3xl">
+              <div className="flex items-center space-x-3">
+                <BadgeCheck className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <p className="text-gray-300 font-medium">Licence transport marchandises + Location véhicules industriels</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Gauge className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <p className="text-gray-300 font-medium">Suivi GPS temps réel sur l'ensemble de notre flotte</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Shield className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <p className="text-gray-300 font-medium">Assurance CMR + Certification ISO 9001 Transport</p>
+              </div>
+            </div>
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6">
@@ -82,149 +97,146 @@ export default function Home() {
               </button>
             </div>
             
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-white/20">
+            {/* Stats PRO */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-6 border-t border-white/20">
               <div className="text-center">
-                <div className="text-3xl font-black text-primary-400 mb-2">45+</div>
-                <div className="text-white/80 font-medium">Véhicules</div>
+                <div className="text-2xl font-bold text-primary-400 mb-1">45+</div>
+                <div className="text-white/80 text-sm font-medium">Véhicules 3.5T-44T</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-primary-400 mb-2">24/7</div>
-                <div className="text-white/80 font-medium">Service</div>
+                <div className="text-2xl font-bold text-primary-400 mb-1">24/7</div>
+                <div className="text-white/80 text-sm font-medium">Dépannage IDF</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-primary-400 mb-2">15+</div>
-                <div className="text-white/80 font-medium">Années</div>
+                <div className="text-2xl font-bold text-primary-400 mb-1">ISO</div>
+                <div className="text-white/80 text-sm font-medium">Certifié 9001</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-primary-400 mb-2">100%</div>
-                <div className="text-white/80 font-medium">France</div>
+                <div className="text-2xl font-bold text-primary-400 mb-1">CMR</div>
+                <div className="text-white/80 text-sm font-medium">Assurance Pro</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section - Entreprise de Transport */}
-      <section id="services" className="py-24 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto">
+      {/* Services Section - Style OrderSpot */}
+      <section id="services" className="py-32 px-6 bg-white dark:bg-black">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
-              Nos Services de Transport
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
+              Services Transport
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              FKExpress vous accompagne dans tous vos besoins de transport de marchandises, 
-              du fret de proximité aux livraisons internationales.
+            <h3 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">
+              Professionnel
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Solutions complètes de transport de marchandises avec licence professionnelle 
+              et certification ISO 9001. Flotte moderne et suivi GPS temps réel.
             </p>
           </div>
 
-          {/* Grid Services Réels */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Transport National */}
+          {/* Grid Services - Style OrderSpot */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Truck className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Truck className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Transport National France
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Transport National
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Depuis Paris et sa région, nous transportons vos marchandises vers toutes les régions de France. Suivi en temps réel et garantie d'arrivée.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Livraisons dans toute la France depuis notre base de Gagny (93). Suivi GPS et garantie d'arrivée.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
                   En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </div>
             </div>
 
-            {/* Fret de Proximité */}
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Zap className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Fret de Proximité Express
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Fret Express Île-de-France
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Service express en région parisienne. Fini les longues tournées ! Livraison directe et rapide pour vos urgences.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Livraison directe en région parisienne. Service d'urgence 24h/24 avec intervention sous 2h.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
                   Devis express <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </div>
             </div>
 
-            {/* Location de Véhicules */}
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Building2 className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Building2 className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Location de Véhicules
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Location Véhicules Industriels
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Plus de 45 véhicules disponibles avec ou sans chauffeur. Du 3.5T aux poids lourds. Tarifs attractifs.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Flotte de 45+ véhicules du 3.5T au 44T. Location avec ou sans chauffeur. Licence transport valide.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
                   Voir la flotte <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </div>
             </div>
 
-            {/* Transport International */}
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Globe className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Transport International
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Assurance & Certifications
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Import/Export vers l'Europe et international. Gestion douanière complète et partenaires certifiés.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Assurance CMR complète, certification ISO 9001, licence transport marchandises officielle.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
-                  Zones desservies <ArrowRight className="ml-2 h-4 w-4" />
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
+                  Nos certifications <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </div>
             </div>
 
-            {/* Entreposage */}
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Warehouse className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Gauge className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Entreposage Sécurisé
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Suivi Temps Réel
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Stockage temporaire et longue durée. Entrepôts sécurisés avec gestion des stocks et préparation commandes.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Localisation GPS sur tous nos véhicules. Traçabilité complète et notifications automatiques.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
-                  Nos entrepôts <ArrowRight className="ml-2 h-4 w-4" />
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
+                  Démo tracking <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </div>
             </div>
 
-            {/* Service 24/7 */}
             <div className="group">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <Clock className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              <div className="bg-gray-900 dark:bg-gray-900 border border-gray-700 rounded-2xl p-8 hover:border-primary-500 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
+                  <Headphones className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Service 24h/24 - 7j/7
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Support Dédié 24/7
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  Équipe disponible en permanence du lundi au dimanche. Chauffeurs expérimentés et équipe de soutien dédiée.
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  Équipe opérationnelle disponible 24h/24. Dépannage, assistance et suivi personnalisé.
                 </p>
-                <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <div className="flex items-center text-primary-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
                   <Phone className="mr-2 h-4 w-4" />
-                  01 XX XX XX XX
+                  01 85 78 43 53
                 </div>
               </div>
             </div>
@@ -232,174 +244,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blocs Apple-Style avec Images */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8">
-              L'Excellence FKExpress
+
+
+      {/* CTA Section - Style OrderSpot */}
+      <section className="py-32 px-6 bg-white dark:bg-black">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
+              Prêt pour un Transport
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Des solutions innovantes qui transforment votre chaîne logistique
+            <h3 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">
+              Professionnel ?
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
+              Contactez-nous dès maintenant pour un devis personnalisé. 
+              Réponse garantie sous 24h avec étude complète de vos besoins logistiques.
             </p>
           </div>
-
-          {/* Grid Apple Style */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { 
-                title: 'Transport Routier', 
-                icon: Truck, 
-                desc: 'Flotte moderne et écologique',
-                color: 'from-blue-500 to-blue-600'
-              },
-              { 
-                title: 'Import/Export', 
-                icon: Globe, 
-                desc: 'Commerce international expert',
-                color: 'from-green-500 to-green-600'
-              },
-              { 
-                title: 'Entrepôts 4.0', 
-                icon: Building2, 
-                desc: 'Stockage intelligent connecté',
-                color: 'from-purple-500 to-purple-600'
-              },
-              { 
-                title: 'Livraison Express', 
-                icon: Zap, 
-                desc: 'Rapidité garantie 24h',
-                color: 'from-orange-500 to-orange-600'
-              },
-              { 
-                title: 'Solutions B2B', 
-                icon: Package, 
-                desc: 'Logistique professionnelle',
-                color: 'from-primary-500 to-primary-600'
-              }
-            ].map((item, index) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={index}
-                  className="group cursor-pointer"
-                >
-                  <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 h-80 flex flex-col items-center justify-center text-center hover:shadow-2xl hover:scale-105 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-500">
-                    <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                      <Icon className="w-10 h-10 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Solutions Pricing - Style Apple */}
-      <section className="py-24 px-6 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6">
-              Solutions Sur-Mesure
-            </h2>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-8">
-              Pour Chaque Entreprise
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              Des solutions flexibles et évolutives, adaptées à tous les besoins logistiques
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-primary-200 dark:border-primary-800 rounded-3xl p-12 max-w-5xl mx-auto shadow-2xl">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                Plateforme Complète Tout-en-Un
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-700 rounded-2xl p-6">
-                  <div className="flex items-center justify-center mb-4">
-                    <Check className="w-6 h-6 text-green-600 dark:text-green-400 mr-3" />
-                    <span className="font-semibold text-green-800 dark:text-green-300">Transport National</span>
-                  </div>
-                  <p className="text-green-700 dark:text-green-400 text-sm">Réseau France entière</p>
-                </div>
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700 rounded-2xl p-6">
-                  <div className="flex items-center justify-center mb-4">
-                    <Check className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
-                    <span className="font-semibold text-blue-800 dark:text-blue-300">Import/Export</span>
-                  </div>
-                  <p className="text-blue-700 dark:text-blue-400 text-sm">Commerce international</p>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-700 rounded-2xl p-6">
-                  <div className="flex items-center justify-center mb-4">
-                    <Check className="w-6 h-6 text-purple-600 dark:text-purple-400 mr-3" />
-                    <span className="font-semibold text-purple-800 dark:text-purple-300">Entreposage 4.0</span>
-                  </div>
-                  <p className="text-purple-700 dark:text-purple-400 text-sm">Gestion intelligente</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <button className="group bg-primary-600 hover:bg-primary-700 text-white px-16 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center mx-auto">
-                Démarrer Maintenant
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">Devis personnalisé en 24h • Sans engagement</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final - Style Apple Premium */}
-      <section className="py-24 px-6 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-16 shadow-2xl">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 text-white mb-8 font-medium">
-              <Star className="w-4 h-4 mr-2" />
-              Rejoignez +1000 entreprises satisfaites
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
-              Transformez Votre Logistique
-            </h2>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12">
-              Dès Aujourd'hui
-            </h2>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto">
-              Des milliers d'entreprises nous font confiance pour optimiser leur chaîne logistique. 
-              Découvrez pourquoi FKExpress est le leader du transport intelligent en France.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-              <button className="group bg-white text-primary-700 px-16 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center">
-                Démarrer Gratuitement
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="border-2 border-white/30 hover:border-white text-white px-12 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center group">
-                <Phone className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Parler à un Expert
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-3xl font-black text-white mb-2">99.9%</div>
-                <div className="text-white/80">Fiabilité garantie</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-black text-white mb-2">24/7</div>
-                <div className="text-white/80">Support expert</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-black text-white mb-2">-30%</div>
-                <div className="text-white/80">Coûts logistiques</div>
-              </div>
-            </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <button className="group bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center">
+              <FileText className="mr-2 h-5 w-5" />
+              Demander un Devis Gratuit
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button className="border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center">
+              <Phone className="mr-2 h-5 w-5" />
+              01 85 78 43 53
+            </button>
           </div>
         </div>
       </section>
@@ -415,51 +287,74 @@ export default function Home() {
                 <span className="text-2xl font-bold text-gray-900 dark:text-white">FKExpress</span>
               </div>
               <p className="text-gray-600 dark:text-gray-400 max-w-md leading-relaxed mb-6">
-                Leader français du transport intelligent et de la logistique nouvelle génération. 
-                Solutions sur-mesure pour optimiser votre chaîne d'approvisionnement.
+                Entreprise de transport de marchandises basée à Gagny (93). 
+                Licence transport + location véhicules industriels. Flotte de 45+ véhicules.
               </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+              <div className="space-y-4">
+                <div className="flex space-x-4">
+                  <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white">FK EXPRESS</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">11 BIS AVENUE DE DIJON</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">93220 GAGNY, France</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Siège Social</p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">Paris, France</p>
+                <div className="flex space-x-4">
+                  <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white">Contact</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">01 85 78 43 53</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">contact@fkexpress.pro</p>
+                  </div>
+                </div>
+                <div className="flex space-x-4">
+                  <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white">Informations légales</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">SIRET: 52188652300047</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">TVA: FR41521886523</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Liens Solutions */}
+            {/* Services Transport */}
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-4">Solutions</h3>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-4">Services</h3>
               <div className="space-y-3">
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Transport National</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Import/Export</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Entreposage</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Livraison Express</a>
+                <a href="#services" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Transport National</a>
+                <a href="#services" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Fret Express IDF</a>
+                <a href="#services" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Location Véhicules</a>
+                <a href="#services" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Suivi GPS</a>
               </div>
             </div>
 
-            {/* Liens Entreprise */}
+            {/* Contact */}
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-4">Entreprise</h3>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-4">Contact</h3>
               <div className="space-y-3">
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">À propos</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Carrières</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
-                <a href="#" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Support</a>
+                <a href="tel:0185784353" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">01 85 78 43 53</a>
+                <a href="mailto:contact@fkexpress.pro" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">contact@fkexpress.pro</a>
+                <a href="#contact" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Devis Gratuit</a>
+                <a href="#contact" className="block text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Support 24/7</a>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              © 2024 FKExpress. Tous droits réservés. | Solutions Transport & Logistique
+              © 2024 FK EXPRESS - SIRET: 52188652300047 | Transport de Marchandises
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors">Mentions légales</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors">Politique de confidentialité</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors">CGV</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors">Conditions générales</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors">Assurances</a>
             </div>
           </div>
         </div>
