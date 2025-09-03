@@ -8,7 +8,7 @@ import Header from '../../components/Header'
 import Logo from '../../components/Logo'
 import DevisPopup from '../../components/DevisPopup'
 import Notification from '../../components/Notification'
-// Removed EmailJS import - using custom API now
+import TurnstileWidget from '../../components/TurnstileWidget'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -27,6 +27,7 @@ export default function ContactPage() {
     message: '',
     type: 'success' as 'success' | 'error'
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true)
@@ -44,6 +45,7 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           type: 'contact',
+          turnstileToken,
           ...formData
         })
       })
@@ -291,6 +293,13 @@ export default function ContactPage() {
                     required
                   ></textarea>
                 </div>
+
+                {/* Turnstile Widget */}
+                <TurnstileWidget
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setTurnstileToken('')}
+                  onExpire={() => setTurnstileToken('')}
+                />
 
                 <button 
                   type="submit"

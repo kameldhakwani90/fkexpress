@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   keywords: 'transport marchandises, transport routier, Gagny, Seine-Saint-Denis, 93, FK EXPRESS, location véhicules industriels, transport national, fret express, logistique Île-de-France, transport professionnel, licence transport, SIRET 52188652300047',
   authors: [{ name: 'FK EXPRESS' }],
   robots: 'index, follow',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'FK EXPRESS - Transport de Marchandises Professionnel',
     description: 'Entreprise de transport de marchandises à Gagny (93). Flotte moderne, suivi GPS, certification ISO. Service 24h/24.',

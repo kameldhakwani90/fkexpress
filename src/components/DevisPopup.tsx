@@ -3,7 +3,7 @@
 import { Truck, Zap, Package, Globe, Shield, Wrench, X, Send, CheckCircle } from 'lucide-react'
 import { useState } from 'react'
 import Notification from './Notification'
-// Removed EmailJS import - using custom API now
+import TurnstileWidget from './TurnstileWidget'
 
 interface DevisPopupProps {
   isOpen: boolean
@@ -31,6 +31,7 @@ export default function DevisPopup({ isOpen, onClose, selectedService }: DevisPo
     pickup_date: '',
     urgent: false
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const services = [
     {
@@ -88,6 +89,7 @@ export default function DevisPopup({ isOpen, onClose, selectedService }: DevisPo
         },
         body: JSON.stringify({
           type: 'devis',
+          turnstileToken,
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -343,6 +345,13 @@ export default function DevisPopup({ isOpen, onClose, selectedService }: DevisPo
                     🚀 Demande urgente (traitement prioritaire)
                   </label>
                 </div>
+
+                {/* Turnstile Widget */}
+                <TurnstileWidget
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setTurnstileToken('')}
+                  onExpire={() => setTurnstileToken('')}
+                />
 
                 <button
                   type="submit"
