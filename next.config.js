@@ -3,6 +3,8 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  // Enable standalone output for Docker deployment
+  output: 'standalone',
   async headers() {
     return [
       {

@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  fkexpress:
+    build: .
+    container_name: fkexpress-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env.local
+    networks:
+      - fkexpress-network
+    depends_on:
+      - nginx
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: fkexpress-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    networks:
+      - fkexpress-network
+    depends_on:
+      - fkexpress
+
+networks:
+  fkexpress-network:
+    driver: bridge

@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, Calendar, User, Clock, Share2 } from 'lucide-react'
+import { ArrowLeft, Calendar, User, Clock, Share2, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Logo from '../../../components/Logo'
@@ -16,6 +16,7 @@ export default function ArticlePage() {
       {
         id: 1,
         title: "Certification EcoVadis : Une performance en 2025 pour les différents business unit de FKExpress Group",
+        image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         content: `FKExpress Group franchit une nouvelle étape importante dans sa démarche de développement durable en obtenant la certification EcoVadis pour l'année 2025.
 
 Cette certification, reconnue mondialement, évalue les performances des entreprises dans quatre domaines clés : l'environnement, le social et les droits de l'homme, l'éthique et les achats responsables.
@@ -188,18 +189,30 @@ Ne manquez pas cette opportunité de construire votre avenir professionnel avec 
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Link href="/">
-                <Logo className="h-10 w-auto text-gray-900 dark:text-white" width={120} height={40} />
+                <Logo className="h-10 w-auto text-red-600" width={120} height={40} />
               </Link>
               <div>
-                <span className="text-xl font-bold text-gray-900 dark:text-white">FKExpress</span>
+                <span className="text-xl font-bold text-gray-900 dark:text-white">FK EXPRESS</span>
                 <p className="text-xs text-gray-500 dark:text-gray-400">Transport & Logistique</p>
               </div>
             </div>
-            <div className="hidden lg:flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Accueil</Link>
-              <Link href="/#services" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Services</Link>
-              <Link href="/blog" className="text-primary-600 dark:text-primary-400 font-medium text-sm">Blog</Link>
-              <Link href="/#contact" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium text-sm">Contact</Link>
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors font-medium">Accueil</Link>
+              <div className="relative group">
+                <button className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors font-medium flex items-center">
+                  Services <ChevronRight className="ml-1 w-4 h-4 transform group-hover:rotate-90 transition-transform" />
+                </button>
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <Link href="/services/transport-national" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Transport National</Link>
+                  <Link href="/services/express-idf" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Express Île-de-France</Link>
+                  <Link href="/services/location-vehicules" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Location Véhicules</Link>
+                  <Link href="/services/transport-international" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Transport International</Link>
+                  <Link href="/services/stockage-securise" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Stockage Sécurisé</Link>
+                  <Link href="/services/suivi-temps-reel" className="block px-4 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Suivi Temps Réel</Link>
+                </div>
+              </div>
+              <Link href="/blog" className="text-red-600 dark:text-red-400 font-semibold">Blog</Link>
+              <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors font-medium">Contact</Link>
               <ThemeToggle />
             </div>
           </div>
@@ -227,6 +240,17 @@ Ne manquez pas cette opportunité de construire votre avenir professionnel avec 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               {article.title}
             </h1>
+
+            {/* Article Image */}
+            {article.image && (
+              <div className="mb-8 rounded-2xl overflow-hidden">
+                <img 
+                  src={article.image} 
+                  alt={article.title}
+                  className="w-full h-96 object-cover"
+                />
+              </div>
+            )}
             
             <div className="flex items-center justify-between text-gray-600 dark:text-gray-400 text-sm border-b border-gray-200 dark:border-gray-700 pb-6">
               <div className="flex items-center space-x-6">
